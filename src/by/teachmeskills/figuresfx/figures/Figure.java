@@ -59,5 +59,5 @@ public abstract class Figure {
         return type;
     }
 
-    public abstract void draw (GraphicsContext graphicsContext);
+    public abstract void draw(GraphicsContext graphicsContext);
 }

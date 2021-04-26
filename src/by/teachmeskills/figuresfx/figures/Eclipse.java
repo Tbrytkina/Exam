@@ -5,22 +5,22 @@ import javafx.scene.paint.Color;
 
 import java.util.Objects;
 
-public class Eclipse extends Figure{
+public class Eclipse extends Figure {
     private double radius1;
     private double radius2;
-
 
 
     private Eclipse(double cx, double cy, double lineWidth, Color color) {
         super(FIGURE_TYPE_ECLIPSE, cx, cy, lineWidth, color);
     }
 
-    public Eclipse(double cx, double cy, double lineWidth, Color color,double radius1, double radius2){
+    public Eclipse(double cx, double cy, double lineWidth, Color color, double radius1, double radius2) {
         this(cx, cy, lineWidth, color);
         this.radius1 = radius1 < 30 ? 30 : radius1;
         this.radius2 = radius2 < 30 ? 30 : radius2;
 
     }
+
     public double getRadius1() {
         return radius1;
     }
@@ -55,7 +55,7 @@ public class Eclipse extends Figure{
 
     @Override
     public int hashCode() {
-        return Objects.hash(radius1,radius2);
+        return Objects.hash(radius1, radius2);
     }
 
     @Override

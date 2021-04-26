@@ -5,7 +5,7 @@ import javafx.scene.paint.Color;
 
 import java.util.Objects;
 
-public class Circle  extends Figure {
+public class Circle extends Figure {
 
     private double radius;
 
@@ -30,7 +30,7 @@ public class Circle  extends Figure {
     public void draw(GraphicsContext graphicsContext) {
         graphicsContext.setLineWidth(lineWidth);
         graphicsContext.setStroke(color);
-        graphicsContext.strokeOval(cx-radius,cy-radius,radius * 2, radius * 2);
+        graphicsContext.strokeOval(cx - radius, cy - radius, radius * 2, radius * 2);
     }
 
     @Override
