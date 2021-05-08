@@ -7,6 +7,7 @@ public abstract class Figure {
     public static final int FIGURE_TYPE_CIRCLE = 0;
     public static final int FIGURE_TYPE_RECTANGLE = 1;
     public static final int FIGURE_TYPE_ECLIPSE = 2;
+    public static final int FIGURE_TYPE_TRIANGLE = 3;
 
     private int type;
 
@@ -58,6 +59,8 @@ public abstract class Figure {
     public int getType() {
         return type;
     }
+
+    
 
     public abstract void draw(GraphicsContext graphicsContext);
 }
