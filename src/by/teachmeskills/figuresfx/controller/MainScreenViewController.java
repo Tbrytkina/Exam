@@ -1,9 +1,7 @@
 package by.teachmeskills.figuresfx.controller;
 
-import by.teachmeskills.figuresfx.figures.Circle;
-import by.teachmeskills.figuresfx.figures.Eclipse;
-import by.teachmeskills.figuresfx.figures.Figure;
-import by.teachmeskills.figuresfx.figures.Rectangle;
+import by.teachmeskills.figuresfx.Exception.UnknownFigureException;
+import by.teachmeskills.figuresfx.figures.*;
 import drawutils.Drawer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -40,7 +38,7 @@ public class MainScreenViewController implements Initializable {
 
     private Figure createFigure(double x, double y) {
         Figure figure = null;
-        switch (random.nextInt(5)) {
+        switch (random.nextInt(4)) {
             case Figure.FIGURE_TYPE_CIRCLE:
                 figure = new Circle(x, y, random.nextInt(3), Color.GREEN, random.nextInt(50));
                 break;
@@ -55,8 +53,16 @@ public class MainScreenViewController implements Initializable {
                         random.nextInt(60), random.nextInt(100));
                 break;
 
+            case Figure.FIGURE_TYPE_TRIANGLE:
+                figure = new Triangle(x, y, random.nextInt(3), Color.BLACK);
+
+
             default:
-                logger.error("Unknown figure type!");
+                try {
+                    throw new UnknownFigureException("Unknown figure type!");
+                } catch (UnknownFigureException e) {
+                    e.printStackTrace();
+                }
         }
 
         return figure;
@@ -67,6 +73,7 @@ public class MainScreenViewController implements Initializable {
         canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
         Drawer<Figure> drawer = new Drawer<>(figures);
         drawer.draw(canvas.getGraphicsContext2D());
+        logger.info("Canvas was repaint");
 
     }
 

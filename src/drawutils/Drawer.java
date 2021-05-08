@@ -1,5 +1,6 @@
 package drawutils;
 
+import by.teachmeskills.figuresfx.Exception.UnknownFigureException;
 import by.teachmeskills.figuresfx.figures.Figure;
 import javafx.scene.canvas.GraphicsContext;
 
@@ -9,9 +10,8 @@ public class Drawer <T extends Figure> implements Drawable {
     private List<T> figures;
 
     @Override
-    public void draw(GraphicsContext gc) {
-        for(int i = 0; i < figures.size(); i++ ){
-            T figure = figures.get(i);
+    public void draw(GraphicsContext gc){
+        for (T figure : figures) {
             figure.draw(gc);
         }
     }
